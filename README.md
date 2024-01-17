@@ -17,4 +17,11 @@ wasmtime hello.wasm
 
 wat2wasm answer.wat -o answer.wasm
 wasmtime --invoke answer answer.wasm
+
+
+rustup target add wasm32-wasi
+rustc --target wasm32-wasi -O hello.rs
+wasmtime hello.wasm
+rustc -O hello.rs
+./hello
 ```
